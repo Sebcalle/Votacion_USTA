@@ -19,6 +19,7 @@
                 <td>Estado</td>
                 <td>Detalles</td>
                 <td>Editar</td>
+                <td>Agregar</td>
             </tr>
             {%for v  in votaciones %}
             <tr class="contenidoTablas2">
@@ -66,6 +67,16 @@
                             <i class="fa-solid fa-pencil"></i>
                         </button>
                     </form> 
+                </td>
+                <td>
+                    {%if v.tipo_id is 2%}
+                    {%if v.estado_id is 1%}
+                        <a href="{%url 'app:listaDeEstudiantesPostular' v.id%}">
+                        <button style="background: greenyellow; height: 25px; width: 80px;margin-left: -30px;">
+                    </button>
+                    </a>
+                    {%endif%}
+                    {%endif%}
                 </td>
             </tr>
             {%endfor%}

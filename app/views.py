@@ -169,6 +169,29 @@ def listaDeEstudiantes(request):
         veri= True
         return render(request, 'app/listaDeEstudiantes.html')
 
+@login_required
+def listaDeEstudiantesPostular(request, id_votacion):
+    try:
+        # id del la facultad del decano
+        id_usuario=request.user.id
+        facultad_decano=Decano.objects.get(user_id=id_usuario)
+        
+        lista=Estudiante.objects.filter(facultad_id=facultad_decano.id)
+        c = Candidato.objects.filter(Votacion_id=id_votacion)
+        contexto={
+            'Estudiantes':lista,
+            'idVotacion':id_votacion,
+            'candidato':c,
+        }
+        return render (request, 'app/listaDeEstudiantesPostular.html',contexto)
+    except:
+        veri= True
+        c = Candidato.objects.filter(Votacion_id=id_votacion)
+        contexto={
+            'idVotacion':id_votacion,
+            'candidato':c
+        }
+    return render(request, 'app/listaDeEstudiantesPostular.html',contexto)
 
 @login_required
 def listaDeVotaciones(request):
@@ -274,11 +297,19 @@ def detallesResultado(request, id_votacion):
     v = Votacion.objects.filter(id=id_votacion)
     c = Candidato.objects.filter(Votacion_id=id_votacion)
     cVoto = Voto.objects.filter(votacion_id=id_votacion)
+    ganador = 0
+    id_ganador = 0
+    for i in c:
+        print(i.propuesta)
+        if i.cantidadvotos > ganador:
+            ganador = i.cantidadvotos
+            id_ganador = i.estudiante_id
     print(cVoto.count())
     contexto={
         'Candidatos':c,
         'Votacion':v,
         'Votos':cVoto.count(),
+        'idGanador':id_ganador,
     }
     return render (request, 'app/detallesResultado.html',contexto)
 
@@ -381,7 +412,7 @@ def postularme(request):
     # id del la facultad del estudiante
         id_usuario=request.user.id
         facultad_estudiante=Estudiante.objects.get(user_id=id_usuario)
-        votacion=Votacion.objects.filter(Q(facultad_id=facultad_estudiante.facultad_id) & Q(estado_id=1))
+        votacion=Votacion.objects.filter(Q(facultad_id=facultad_estudiante.facultad_id) & Q(estado_id=1) & Q(tipo_id=1))
         contexto={
             'votaciones':votacion,
         }
@@ -417,6 +448,7 @@ def postulacionPost(request,id_votacion):
         candidato.semestre=estudiante.semestreActual
         candidato.Votacion_id=id_votacion
         candidato.estudiante_id=estudiante.id
+        candidato.cantidadvotos = 0
         candidato.save()
         veri=True
         return redirect ('app:postulacionExitosa')
@@ -433,5 +465,24 @@ def menuEstudiante(request):
 def postulacionExitosa(request):
     return render (request, 'app/postulacionExitosa.html')
 
+@login_required
+def postulacionExitosaDecano(request,id_votacion,id_usuario):
+    try:
+        print(id_usuario)
+        estudiante=Estudiante.objects.get(user_id=id_usuario)
+        candidato=Candidato.objects.get(Q(Votacion_id=id_votacion) & Q(estudiante_id=estudiante.id))
+        return redirect ('app:YaEstaPostuladoDecano')
 
+    except:
+        estudiante=Estudiante.objects.get(user_id=id_usuario)
+        candidato=Candidato.objects.filter(Q(Votacion_id=id_votacion) & Q(estudiante_id=estudiante.id))
+        candidato=Candidato()
+        candidato.propuesta="Representante General."
+        candidato.semestre=estudiante.semestreActual
+        candidato.Votacion_id=id_votacion
+        candidato.estudiante_id=estudiante.id
+        candidato.cantidadvotos=0
+        candidato.save()
+        veri=True
+    return render (request, 'app/postulacionExitosaDecano.html')
     

@@ -33,10 +33,14 @@
                 </tr>
                 {%for c in Candidatos%}
                 {%if c.Votacion_id is v.id%}
-                <tr class="ContenidoTablas">
+                {%if c.estudiante_id is idGanador%}
+                <tr class="ContenidoTablas" style="background: greenyellow;">
+                {%else%}
+                <tr class="ContenidoTablas"></tr>
+                {%endif%}
                     <td>{{c.estudiante.user.first_name}}</td>
                     <td>{{c.estudiante.user.last_name}}</td>
-                    <td>{{Votos}}</td>
+                    <td>{{c.cantidadvotos}}</td>
                 </tr>
                 {%endif%}
                 {%endfor%}

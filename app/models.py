@@ -38,7 +38,7 @@ class Decano (models.Model):
 class Estudiante (models.Model):
     semestreActual= models.IntegerField(null=False)
     documento=models.IntegerField(null=False)
-
+    repre = models.IntegerField(null=False)
     facultad= models.ForeignKey(
         Facultad,
         related_name='estudiantes',
@@ -125,6 +125,7 @@ class Candidato (models.Model):
     )
     semestre= models.IntegerField(null=True)
     propuesta=models.CharField(max_length=45, null=True)
+    cantidadvotos = models.IntegerField(null=True)
 
     def __str__(self):
         return "%s %s" % (self.estudiante, self.propuesta)
