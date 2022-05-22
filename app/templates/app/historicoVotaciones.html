@@ -1,0 +1,52 @@
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%}   
+<link rel="stylesheet" href="{% static 'app/css/histVotaciones.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+        <div class="contenido">
+             <h1>Historico de Votaciones</h1>
+             <p>En este listado podrá visualizar la elección realizada en todas las votaciones finalizadas o en votación</p>
+             <div class="tabla">
+                <table>
+                    <tr class="TitulosTabla">
+                        <td>Nombre</td>
+                        <td>Tipo</td>
+                        <td>Fecha de inicio</td>
+                        <td>Fecha de finalización</td>
+                        <td>Ciclo</td>
+                        <td>Ver mi voto</td>
+                    </tr>
+                    {%for v in Votacion%}
+                    {% csrf_token %}
+                    <tr class="ContenidoTabla">
+                       <td>{{v.nombre}}</td>
+                       <td>{%if v.tipo_id is 1%}
+                           Semestre
+                           {%else%}
+                           Facultad
+                           {%endif%}
+                       </td>
+                       <td>{{v.fechaInicio}}</td>
+                       <td>{{v.fechaFinal}}</td>
+                       <td>2022-1</td>
+                       <td>
+                        <form action="{% url 'app:detallesHistorico' v.id%}" method="POST">
+                            {% csrf_token %}
+                            <button>
+                            <a href="">
+                            <i class="fa-solid fa-eye"></i>
+                           </a>
+                            </button>
+                           </form>
+                       </td>
+                       {%endfor%}
+                   </tr>
+                </table>    
+             </div>
+        </div> 
+    </div>
+    
+{% endblock%} 

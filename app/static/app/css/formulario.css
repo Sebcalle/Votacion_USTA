@@ -1,0 +1,61 @@
+
+
+
+.formulario {
+    margin-left: 25%;
+    margin-right: 20%;
+  }
+
+  .formulario input{
+    margin-left: 20px;
+    height: 20px;
+    width: 350px;
+    background: #BEDCF3;
+    color: black;
+    background-color: #BEDCF3;
+    left: 50%;
+    float: right;
+  }
+
+  .formulario h3{
+    text-align: left;
+  }
+
+
+  .formulario h3 label{
+    color: rgb(166, 166, 184);
+    /* padding-left: 180px; */
+    padding-left: 10px;
+  }
+  /* Para el label del Estado de crar votacion */
+  #postulacionLabel{
+    color: rgb(166, 166, 184);
+    padding-left: 200px;
+  }
+ 
+
+  .formulario button{
+    background: #2C74AC;
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+    float: right;
+  }
+  /* Botón de crar votación */
+  #botonCrearVotacion{
+    background: #2C74AC;
+    font-size: 18px;
+    color: white;
+    margin-top: 40px;
+    margin-left: 1000px;
+  }
+
+  .formulario select{
+    background: #BEDCF3;
+    font-size: 18px;
+    color: black;
+    width: 360px;
+    float: right;
+  }
+ 
+  

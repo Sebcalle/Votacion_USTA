@@ -1,0 +1,62 @@
+  /* CONTENIDO*/
+  .contenido h2{
+    font-size: 40px;
+    text-align: center;
+  }
+  .contenido button{
+    background-color: #183B71;
+    border: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+  } 
+  .contenido button:hover{
+    background-color: #87ace4;
+  }
+  .contenido h2{
+    text-decoration: none;
+    margin-bottom: 90px;
+    color: black;
+  }
+
+  .contenido h3{
+    margin-left: 7px;
+    margin-right: 300px;
+    margin-top: -50px;
+    margin-bottom: 50px;
+  }
+ 
+  #botonCancelar{
+    margin-left: 342px;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+  #botonPostularse{ 
+    margin-left: 342px;
+    margin-top: 0px;
+  }
+
+  .formulario {
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+  }
+ 
+  .votacion h3 label{
+    color: gray;
+    margin-left: 10px;
+  }
+
+  #propuestaTXT{
+    margin-left: 10px;
+    margin-top: -40px;
+    background-color: rgba(24, 59, 113, 0.28);
+    border: #ffffff;
+  }
+
+

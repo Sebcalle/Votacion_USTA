@@ -1,0 +1,112 @@
+.contenedor{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+td h2 {
+    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #3A60C2;
+    font-size: 20px;
+}
+
+table {
+    margin-left: 5%;
+}
+.titulosTablas td{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 20px;
+    color: #3A60C2;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+.contenidoTablas td{
+   padding-left: 60px;
+   padding-bottom: 8px;
+}
+.contenidoTablas:hover{
+    background-color: rgba(152, 159, 255, 0.788);
+ }
+.contenidoTablas2 td{
+    padding-left: 40px;
+    padding-bottom: 8px;
+ }
+ .contenidoTablas2:hover{
+    background-color: rgba(152, 159, 255, 0.788);
+ }
+
+td {
+    font-size: 15px;
+    width: 1000px;
+} 
+
+h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+    margin-left: 3%;
+}
+
+h4 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 30px;
+    margin-left: 5%;
+    color: #1D70BD;
+}
+
+.postulacion td h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: white;
+    background-color: #0A5BA5;
+    font-size: 20px;
+    text-align: center;
+}
+
+.postulacion td {
+    font-size: 15px;
+    width: 10000px;
+} 
+
+.contenido button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+}
+
+.contenido button i{
+    color: #155282;
+    font-size: 20px;
+    margin: auto;
+  }
+
+  .contenido button i:hover{
+    color: #6a8396;
+  }
+  .contenido h3{
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .contenido h3 label{
+    color: rgb(166, 166, 184);
+    padding-left: 10px;
+  }
+
+#botonpostular{
+    background-color: #0A5BA5;
+    font-size: 18px;
+    color: white;
+    margin-top: 40px;
+    margin-left: 1000px;
+  }

@@ -1,0 +1,53 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{% static 'app/css/formulario.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+<div class="contenido">
+    <div class="titulo">
+        <h1>Crear votación</h1>
+    </div>
+    <div class="panel">
+        <div class="formulario">
+            <form action="{%url 'app:votacionPost'%}" method="POST">
+                {% csrf_token %} 
+                <h3>Nombre<input type="text" name="nombre"></h3>
+                <h3>Fecha de inicio<input type="date" name="fechaInicio"></h3>
+                <h3>Fecha de finalización<input type="date" name="fechaFin"></h3>
+                {%if request.user.is_authenticated %}
+                <h3>Facultad <label>{{ Facultad }}</label></h3>
+                {%else%}
+                <h3>Facultad <label>Anonimo</label></h3>
+                {%endif%}
+
+                <h3>Tipo de Votación 
+                    <select name="tipo" id="tipo">
+                        {% for t in tipo%}
+                        <option value="{{t.id}}">{{t.nombre}}</option>>
+                        {%endfor%}  
+                    </select>
+                </h3>
+
+                <h3>Ciclo
+                    <select size="1" multiple >
+                        <option value="1">2022-1</option>
+                        <option value="2">2022-2</option>
+                    </select>
+                </h3>
+                <h3>Estado<label id="postulacionLabel">{{estado}}</label></h3>
+                <!-- <h3>
+                    <input type="radio" name="x">Postulación</label>
+                    <br>
+                    <input type="radio" name="x" disabled>Votación</label>
+                    <br>
+                    <input type="radio" name="x" disabled>Cerrado</label>
+                </h3> -->
+                <button id="botonCrearVotacion">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%} 

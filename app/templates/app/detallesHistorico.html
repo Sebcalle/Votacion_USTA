@@ -1,0 +1,51 @@
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%}   
+<link rel="stylesheet" href="{% static 'app/css/detallesHistorico.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+       
+            <div class="contenido">
+                {%for v in Votacion%}
+                <h1>{{v.nombre}}</h1> 
+                <h2>
+                    {%if v.tipo_id is 1%}
+                    Semestre
+                    {%else%}
+                    Facultad
+                    {%endif%}
+                </h2>
+                <h3>Fecha de inicio <label>{{v.fechaInicio}}</label></h3>
+                <br>
+                <h3>Fecha de finalización <label>{{v.fechaFinal}}</label></h3>
+                <br>
+                <h3>Ciclo <label>2022-1</label></h3>
+
+                <h4>Lista de candidatos</h4>
+                {%for c in Candidato%}
+                    {%for v1 in Voto%}
+                    {%if v1.candidato.id is c.id%}
+                    <div class="candidato" style="background: green;">
+                    {%else%}
+                    <div class="candidato">
+                    {%endif%}
+                    {%endfor%}
+                    <button>
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+                    <ul>
+                        <li>{{c.estudiante.user.first_name}} {{c.estudiante.user.last_name}}</li>
+                        <li>Propuesta: {{c.propuesta}}</li>
+                    </ul>
+    
+                </div> 
+                <br>
+                {%endfor%}
+                {%endfor%}
+            </div> 
+        
+        </div>
+    
+{% endblock%} 

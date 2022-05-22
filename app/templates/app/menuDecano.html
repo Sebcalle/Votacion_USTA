@@ -1,0 +1,49 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block css%} 
+    <link rel="stylesheet" href="{% static 'app/css/menu.css' %}" />
+{% endblock%} 
+    
+{% block contenido%}    
+        <div class="contenido">
+            <table>
+                <tr>
+                    <td>
+                        <a href="{%url 'app:agregarEstudiante'%}">
+                            <button>
+                                <i class="fa-solid fa-user-plus"></i>
+                            </button>
+                        </a>
+                        <h3>Crear Estudiante</h3>
+                    </td>
+                    <td>
+                        <a href="{%url 'app:listaDeEstudiantes'%}">
+                            <button>
+                                <i class="fa-solid fa-users"></i>
+                            </button>
+                        </a>
+                        <h3>Lista de Estudiantes</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{% url 'app:crearVotacion'%}">
+                            <button>
+                                <i class="fa-solid fa-circle-plus"></i>
+                            </button>
+                        </a>
+                        <h3>Crear Votación</h3>
+                    </td>
+                    <td>
+                        <a href="{% url 'app:listaDeVotaciones'%}">
+                            <button>
+                                <i class="fa-solid fa-list"></i>
+                            </button>
+                        </a>
+                        <h3>Lista de Votaciones</h3>
+                    </td>
+                </tr>
+            </table>
+        </div>
+{% endblock %}

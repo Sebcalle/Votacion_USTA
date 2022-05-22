@@ -1,0 +1,54 @@
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%} 
+    <link rel="stylesheet" href="{% static 'app/css/detallesResultados.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+        <div class="contenido">
+            {%for v in Votacion%}
+             <h1>{{v.nombre}}</h1>
+             <h3>Representante por 
+                {%if v.tipo_id is 1%}
+                Semestre
+                {%else%}
+                Facultad
+                {%endif%}
+             </h3>
+             <h2>Fecha de inicio <label>{{v.fechaInicio}}</label></h2>
+             <br>
+             <h2>Fecha de finalización<label>{{v.fechaFinal}}</label></h2>
+             <br>
+             <h2>Ciclo <label>2022-1</label></h2>
+             <br>
+             <h2>Semestre<label>10/02/2022</label></h2>
+
+             <h4>Resultados</h4>
+            <table>
+                <tr class="TitulosTablas">
+                    <td>Nombre</td>
+                    <td>Apellidos</td>
+                    <td>Número de votos</td>
+                </tr>
+                {%for c in Candidatos%}
+                {%if c.Votacion_id is v.id%}
+                <tr class="ContenidoTablas">
+                    <td>{{c.estudiante.user.first_name}}</td>
+                    <td>{{c.estudiante.user.last_name}}</td>
+                    <td>{{Votos}}</td>
+                </tr>
+                {%endif%}
+                {%endfor%}
+            </table>
+            <a href="{%url 'app:detallesHistorico' v.id%}">
+                <button>
+                    <i class="fa-solid fa-eye"></i>
+                    <h3>Ver Mi Voto</h3>
+                </button>
+            </a>
+            {%endfor%}
+        </div> 
+    </div>
+    
+{% endblock%} 

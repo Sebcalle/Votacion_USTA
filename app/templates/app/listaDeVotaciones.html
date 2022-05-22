@@ -1,0 +1,75 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{% static 'app/css/tabla.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+<div class="contenido">
+    <h1>Lista de Votaciones</h1>
+    <div class="panel">
+        <table>
+            <tr  class="titulosTablas">
+                <td>Nombre</td>
+                <td>Tipo</td>
+                <td>Fecha de inicio</td>
+                <td>Fecha de finalización</td>
+                <td>Ciclo</td>
+                <td>Estado</td>
+                <td>Detalles</td>
+                <td>Editar</td>
+            </tr>
+            {%for v  in votaciones %}
+            <tr class="contenidoTablas2">
+                <td>{{v.nombre}}</td>
+                {%if v.tipo_id is 1%}
+                <td>Semestre</td>
+                {%else%}
+                <td>Facultad</td>
+                {%endif%}
+                <td>{{v.fechaInicio}}</td>
+                <td>{{v.fechaFinal}}</td>
+                <td> 2022-1 </td>
+                <td>
+                {%if v.estado_id is 1%}
+                Postulacion
+                {%elif v.estado_id is 2%}
+                Votacion
+                {%else%}
+                Cerrada
+                {%endif%}
+                </td>
+                <td>
+                    {%if v.tipo_id is 1 %}
+                    <!-- <h1>HOLA MUNDO</h1> -->
+                    <form action="{%url 'app:vistaVotacionSemestrePost' v.id %}">
+                        {% csrf_token %}
+                        <button class="ojo">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </form>
+                    {%else%}
+                    <!-- <h1>CHAO MUNDO</h1> -->
+                    <form action="{%url 'app:vistaVotacionFacultadPost' v.id %}">
+                        {% csrf_token %}
+                        <button class="ojo">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </form>
+                    {%endif%}                    
+                </td>
+                <td>
+                    <form action="{%url 'app:editarVotaciones' v.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit">
+                            <i class="fa-solid fa-pencil"></i>
+                        </button>
+                    </form> 
+                </td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+</div>
+{% endblock%} 

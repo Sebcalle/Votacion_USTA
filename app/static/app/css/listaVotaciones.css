@@ -1,0 +1,69 @@
+
+    /* CONTENIDO */
+    body{
+      position: fixed;
+    }
+
+    .contenido h1{
+        text-align: center;
+        font-size: 40px;
+    }
+    .contenido p{
+      text-align: center;
+    }
+    .contenido table{
+        text-align: center;
+        margin-left: 130px;
+        margin-top: -10px;
+    }
+    .TitulosTabla{
+        text-align: center;
+        padding: 60px;
+
+    }
+    .TitulosTabla td{
+        padding: 20px;
+        padding-top: 30px;
+        font-weight: bold;
+        font-size: 20px;
+        color: #3A60C2;
+    }
+    /* Espacios entre filas */
+    .ContenidoTabla td{
+        padding: 5px;
+    }
+
+    /* Botones ICONOS */
+
+    .contenido td button i{
+      color: #183B71;
+      /* centrar iconos */
+      margin: auto;
+      font-size: 30px;
+
+    }
+    .contenido i:hover{
+      color: #1f2631;
+    }
+    .ContenidoTabla:hover{
+      background-color: #adc9f0;
+      cursor: pointer;
+    }
+
+
+    /* de tabla.css */
+    .contenido button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    
+    .contenido button i{
+      color: #155282;
+      font-size: 20px;
+      margin: auto;
+    }
+    
+    .contenido button i:hover{
+      color: #6a8396;
+    }

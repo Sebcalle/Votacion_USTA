@@ -1,0 +1,40 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block css%} 
+    <link rel="stylesheet" href="{% static 'app/css/formulario.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+<div class="contenido">
+    <div class="titulo">
+        <h1>Cambiar Estado</h1>
+    </div>
+    <div class="panel">
+        
+        <div class="formulario">
+            <form action="{% url 'app:editarVotacionesPost' id %}" method="POST">
+                {% csrf_token %} 
+                <h3>Nombre <Label>{{v.nombre}}</Label></h3>
+                <h3>Fecha de inicio <label>{{v.fechaInicio}}</label></h3>
+                <h3>Fecha de finalización <label>{{v.fechaFinal}}</label></h3>
+                <h3>Ciclo <label>CICLO</label></h3>
+                <h3>Facultad <label>{{f}}</label></h3>
+                      
+                <h3>Tipo de Votación 
+                    <select name="estado" id="estado">
+                        {% for e in estado %}
+                        <option value="{{e.id}}">{{e.nombre}}</option>
+                        {%endfor%}  
+                    </select>
+              
+                </h3>                    
+                <button>Guardar</button>
+               
+            </form>
+        </div>
+        
+        
+    </div>
+</div>  
+{% endblock%} 

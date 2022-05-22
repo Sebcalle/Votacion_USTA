@@ -1,0 +1,41 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{% static 'app/css/tabla.css' %}" />
+{% endblock%} 
+
+{% block contenido %} 
+<div class="contenido">
+    <div class="titulo">
+        <h1>Postulación de Estudiantes</h1>
+    </div>
+    <h3>Votación <label>Votación1</label></h3>
+    <h3>Ciclo <label>2022-1</label></h3>
+    <h4>Lista de Estudiantes</h4>
+    <div>
+        <table class="postulacion">
+            <tr>
+                <td><h2>Semestre</h2></td>
+                <td><h2>Nombre</h2></td>
+                <td><h2>Apellidos</h2></td>
+                <td><h2>Postular</h2></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Sebastian</td>
+                <td>Meza Calle</td>
+                <td><input type="radio"></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Jennifer Andrea</td>
+                <td>Camacho Manosalva</td>
+                <td><input type="radio"></td>
+            </tr>
+        </table>
+        <a href="{%url 'app:vistaVotacionFacultad'%}">
+            <button id="botonpostular">Postular</button>
+        </a>
+    </div>
+{% endblock%} 

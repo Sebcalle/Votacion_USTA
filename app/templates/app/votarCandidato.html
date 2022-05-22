@@ -1,0 +1,51 @@
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%} 
+    <link rel="stylesheet" href="{% static 'app/css/votarCandidato.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+        
+        <div class="contenido"> 
+            <h1>{{v.nombre}}</h1> 
+            {%if v.tipo_id is 1%}
+            <h2>Semestre</h2>
+            {%else%}
+            <h2>Facultad</h2>
+            {%endif%}
+            <h3>Fecha de inicio <label>{{v.fechaInicio}}</label></h3>
+            <br>
+            <h3>Fecha de finalización <label>{{v.fechaFinal}}</label></h3>
+            <br>
+            <h3>Semestre <label>{{f}}</label></h3>
+
+            <h4>Lista de candidatos</h4>
+            {%for c in candidato%}
+            <form action="{% url 'app:votacionExitosaPost' c.id v.id%}" method="POST">
+                <div class="candidato"> 
+                    {% csrf_token %}
+                    {%if voto is 1%}
+                    <button>
+                        <i class="fa-solid fa-user"></i>
+                        <br>
+                        <a href="">
+                            <h3>Votar</h3>
+                        </a>  
+                    </button>
+                    {%else%}
+                    YA VOTO
+                    {%endif%}
+                    <ul>
+                        <li>Nombre: {{c.estudiante.user.first_name}},{{c.estudiante.user.last_name}}</li>
+                        <li>Propuesta: {{c.propuesta}}</li>    
+                    </ul> 
+                </div>
+            </form>
+            <br>
+            <br>
+            {%endfor%}                
+        </div> 
+        
+    </div>
+    {% endblock%}

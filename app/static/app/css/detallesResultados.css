@@ -1,0 +1,65 @@
+.contenido h1{
+    text-align: center;
+}
+.contenido h3{
+    text-align: center;
+    margin-top: -10px;
+    color: #183B71;
+}
+.contenido h2{
+    margin-left: 30px;
+    font-size: 20px;
+    display: inline-block;
+}
+.contenido h2 label{
+    color: gray;
+    padding-left: 10px;
+}
+.contenido h4{
+    margin-left: 100px;
+    font-size: 25px;
+    color: #183B71;
+}
+
+.contenido table{
+    text-align: center;
+    margin-left: 100px;
+}
+#pre{
+    color: rgb(107, 107, 110);
+}
+
+.TitulosTablas td{
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #183B71;
+    background-color: #183c715d;
+}
+
+.ContenidoTablas td{
+    padding: 5px;
+    text-align: center;
+}
+.contenido button{
+    background-color: white;
+    border: none;
+    
+}
+.contenido button i{
+    color: #5ECA38;
+    font-size: 50px;
+    margin-top: 50px;
+}
+.contenido button i:hover{
+    color: #335a24;
+    cursor: pointer;
+}
+.contenido button h3{
+    padding-top: 20px;
+    margin-left: 120px;
+    color: #25660d;
+}

@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{% static 'app/css/tabla.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+<div class="contenido">
+    <h1>Lista de Estudiantes</h1>
+
+    <div class="panel">
+        <table>
+            <tr class="titulosTablas">
+                <td>Nombre</td>
+                <td>Apellidos</td>
+                <td>Email</td>
+                <td>Documento</td>
+                <!-- <td></td> -->
+            </tr>
+            {%for e  in Estudiantes%}
+            <tr class="contenidoTablas">
+                <td>{{e.user.first_name}}</td>
+                <td>{{e.user.last_name}}</td>
+                <td>{{e.user.email}}</td>
+                <td>{{e.documento}}</td>
+            </tr>
+            {%endfor%}
+                <!-- <td>
+                    <a href="./editarEstudiante.html">
+                        <i class="fa-solid fa-pencil" style="color: #3A60C2; font-size: 20px; margin-left: -60px"></i>
+                    </a>
+                </td> -->
+            
+        </table>
+    </div>
+</div>
+{% endblock%} 

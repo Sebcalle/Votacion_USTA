@@ -1,0 +1,68 @@
+ /* CONTENIDO */
+ .contenido{
+    padding-top: 50px;
+    margin-left: 30px;
+}
+.contenido h1{
+    text-align: center;
+    font-size: 40px;
+}
+.contenido h2{
+    text-align: center;
+    font-size: 20px;
+    color: #183B71;
+}
+.contenido h3{
+    font-size: 20px;
+    display: inline-block;
+
+}
+.contenido h3 label{
+    font-size: 20px;
+    color: rgb(90, 103, 112);
+    display: inline-block;
+
+}
+.contenido h4{
+    font-size: 30px;
+
+}
+
+.candidato button{
+   background-color: #BEC8D7;
+   border: none;
+}
+.candidato button i{
+    color: black;
+    font-size: 100px;
+    margin: 0;  
+    padding: 0;
+    margin-left: 8px;
+    background-color: #BEC8D7;
+
+}
+.candidato{
+    background-color: #BEC8D7;
+    grid-area: candidato;
+    display: flex;
+
+}
+
+.candidato ul li{
+    font-size: 15px;
+    padding-top:10px;
+    padding-bottom: 50px;
+    list-style: none;
+    color: black;
+}
+.candidato h3{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #947ec7;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+.candidato h3:hover{
+    color: #3c114d;
+}

@@ -1,0 +1,20 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{% static 'app/css/error.css' %}" />
+{% endblock%}
+    
+{% block contenido%} 
+
+        <div class="contenido">
+            <div class="imagenError">
+                <img src="../../static/app/img/error.png" alt="error" class="error"></a>
+            </div>
+            <h1>El estudiante ya se encuentra registrado</h1>
+            <div class="botones">
+                <a href="{% url 'app:agregarEstudiante' %}"><button class="agregar">Crear Estudiante</button></a>
+                <a href="{% url 'app:listaDeEstudiantes' %}"><button class="lista">Lista de Estudiantes</button></a>
+            </div>
+        </div>
+{% endblock %}

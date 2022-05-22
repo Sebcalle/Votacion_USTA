@@ -1,0 +1,35 @@
+/* CONTENIDO */
+
+.contenidoo button{
+    border: #ffffff;
+    background-color: #ffffff;
+    
+}
+.contenidoo button i{
+    color: red;
+    font-size: 200px;
+    position: absolute;
+    width: 199px;
+    height: 187px;
+    left: 390px;
+    top: 315px;
+   
+}
+.contenidoo h1{
+    font-size: 30px;
+    color: red;
+    position: absolute;
+    width: 407px;
+    height: 35px;
+    left: 770px;
+    top: 320px;   
+}
+.contenidoo h2{
+  font-size: 30px;
+  color: red;
+  position: absolute;
+  width: 407px;
+  height: 35px;
+  left: 770px;
+  top: 400px;
+}

@@ -1,0 +1,60 @@
+body{
+    position: fixed;
+}
+/* CONTENIDO */
+
+.contenido h1{
+    text-align: center;
+    font-size: 40px;
+}
+.contenido p{
+    text-align: center;
+}
+.contenido table{
+    text-align: center;
+    margin-left: 60px;
+}
+.TitulosTabla{
+    text-align: center;
+    padding: 60px;
+
+}
+.TitulosTabla td{
+    padding: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #3A60C2;
+}
+
+.ContenidoTabla td{
+    padding: 5px;
+}
+
+.contenido button{
+    background-color: #183B71;
+    border: white;
+    margin-left: 520px;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.contenido a{
+    text-decoration: none;
+    color:white;
+}
+.contenido button:hover{
+    background-color:#5984c5;
+}
+.ContenidoTabla:hover{
+    background-color: #adc9f0;
+    cursor: pointer;
+}
+.contenido td a i{
+    margin: auto;
+    color: #183B71;
+    font-size: 30px;
+}
+.contenido td a i:hover{
+    margin: auto;
+    color: #1f2631;
+}

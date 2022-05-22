@@ -1,0 +1,42 @@
+
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%}   
+<link rel="stylesheet" href="{% static 'app/css/detallesResultadosFacultad.css' %}" />
+{% endblock%} 
+
+{% block contenido%}    
+        <div class="contenido">
+             <h1>Nombre de Votación</h1>
+             <h3>Representante por semestre</h3>
+             <h2>Fecha de inicio <label>10/02/2022</label></h2>
+             <br>
+             <h2>Fecha de finalización<label>10/03/2022</label></h2>
+             <br>
+             <h2>Ciclo <label>2022-1</label></h2>
+             <br>
+             <h2>Semestre<label>10/02/2022</label></h2>
+
+             <h4>Resultados</h4>
+            <table>
+                <tr class="TitulosTablas">
+                    <td>Nombre</td>
+                    <td>Apellidos</td>
+                    <td>Número de votos</td>
+                </tr>
+                <tr class="ContenidoTablas">
+                    <td>Nombre 1</td>
+                    <td>Apellidos 1</td>
+                    <td>N</td>
+                </tr>
+            </table>
+            <a href="{%url 'app:detallesHistorico'%}">
+                <button>
+                    <i class="fa-solid fa-eye"></i>
+                    <h3>Ver Mi Voto</h3>
+                </button>
+            </a>
+        </div> 
+    </div>
+{% endblock%}  

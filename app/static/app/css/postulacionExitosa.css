@@ -1,0 +1,28 @@
+
+    /* CONTENIDO */
+
+    .contenido button{
+        border: #ffffff;
+        background-color: #ffffff;
+        
+    }
+    .contenido button i{
+        color: #318A6A;
+        font-size: 200px;
+        position: absolute;
+        width: 199px;
+        height: 187px;
+        left: 290px;
+        top: 315px;
+       
+    }
+    .contenido h1{
+        font-size: 30px;
+        color: #032B11;
+        position: absolute;
+        width: 407px;
+        height: 35px;
+        left: 670px;
+        top: 350px;
+        line-break: auto;
+    }

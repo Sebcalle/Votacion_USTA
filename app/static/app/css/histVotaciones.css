@@ -1,0 +1,36 @@
+.contenido h1{
+    text-align: center;
+    font-size: 40px;
+}
+.contenido p{
+  text-align: center;
+}
+.contenido table{
+    text-align: center;
+    margin-left: 100px;
+    margin-top: -10px;
+}
+.TitulosTabla{
+    text-align: center;
+}
+.TitulosTabla td{
+    padding: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #3A60C2;
+}
+
+/* Botones ICONOS */
+
+.contenido i:hover{
+  color: #1f2631;
+}
+.ContenidoTabla:hover{
+  background-color: #adc9f0;
+}
+
+.contenido td a i{
+    font-size: 30px;
+    margin:auto;
+    color: #3A60C2;
+}

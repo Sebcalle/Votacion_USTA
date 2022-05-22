@@ -1,0 +1,52 @@
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%}   
+<link rel="stylesheet" href="{% static 'app/css/listaResultados.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+        <div class="contenido">
+            <h1>Lista de Resultados</h1>
+            <p>En este listado encontrará los resultados de las votaciones en las que participó</p>
+            <div class="tabla">
+                <table>
+                    <tr class="TitulosTabla">
+                        <td>Nombre</td>
+                        <td>Tipo</td>
+                        <td>Fecha de inicio</td>
+                        <td>Fecha de finalización</td>
+                        <td>Ciclo</td>
+                        <td>Estado</td>
+                        <td>Detalles</td>
+                    </tr>
+                    {%for v in votaciones%}
+                        {%if v.estado_id is 3%}
+                            <tr class="ContenidoTabla">
+                                <td>{{v.nombre}}</td>
+                                <td>
+                                    {%if v.tipo_id is 1%}
+                                        Semestre
+                                    {%else%}
+                                        Facultad
+                                    {%endif%}
+                                </td>
+                                <td>{{v.fechaInicio}}</td>
+                                <td>{{v.fechaFinal}}</td>
+                                <td>2022-1</td>
+                                <td>Cerrado</td>
+                                <td>
+                                <a href="{% url 'app:detallesResultado' v.id%}">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                                </td>
+                            </tr>
+                        {%endif%}
+                    {%endfor%}
+                </table>
+               
+             </div>
+        </div> 
+    </div>
+    
+    {% endblock%} 

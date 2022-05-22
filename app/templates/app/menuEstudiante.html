@@ -1,0 +1,48 @@
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%} 
+    <link rel="stylesheet" href="{% static 'app/css/menuEstudiante.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+
+        <div class="contenido">
+            <a href="{% url 'app:listaVotacionesEstudiantes'%}">
+                <button id="boton1">
+                    <i class="fa-solid fa-list-ul">
+                        <br>
+                        <h2>Lista de Votaciones</h2>
+                    </i>
+                </button>
+            </a>
+            <a href="{% url 'app:postularme'%}">
+                <button id="boton2">
+                    <i class="fa-solid fa-user-plus">                  
+                        <br>                    
+                        <h2>Postularme</h2>
+                    </i>
+                </button>
+            </a>
+            <a href="{% url 'app:listaResultados'%}">
+                <button id="boton3">
+                    <i class="fa-solid fa-square-poll-horizontal">
+                        <br>
+                        <h2>Lista de Resultados</h2>
+                    </i>
+                </button>
+            </a>
+            
+            <a href="{% url 'app:historicoVotaciones'%}">
+                <button id="boton4">
+                    <i class="fa-solid fa-clock-rotate-left">
+                        <br>
+                        <h2>Historico Votaciones</h2>
+                    </i>
+                </button>
+            </a>    
+            
+        </div> 
+    </div>
+    
+{% endblock %}

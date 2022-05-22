@@ -1,0 +1,18 @@
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%} 
+    <link rel="stylesheet" href="{% static 'app/css/votacionExitosa.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+        
+        <div class="contenido">  
+            <button>
+                <i class="fa-solid fa-circle-check"></i>
+            </button>
+            <h1>Su voto ha sido registrado</h1>
+            <h2>Gracias por su participación</h2>
+        </div> 
+    </div>
+{% endblock%}

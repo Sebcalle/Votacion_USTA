@@ -1,0 +1,35 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block css %} 
+    <link rel="stylesheet" href="{% static 'app/css/formulario.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+
+        <div class="contenido">
+            <div class="titulo">
+                <h1>Crear Estudiante</h1>
+            </div>
+            <div class="panel">
+                <div class="formulario">
+                    <form action="{%url 'app:registroPost'%}" method="POST">
+                        {% csrf_token %} 
+                        <h3>Nombres<input type="text" name="nombres"></h3>
+                        <h3>Apellidos<input type="text" name="apellidos"></h3>
+                        <h3>Semestre<input type="number" name="semestre"></h3>
+                        <h3>Email<input type="email" name="email"></h3>
+                        <h3>Documento<input type="number" name="documento"></h3>
+                        {%if request.user.is_authenticated %}
+                        <h3> Facultad <label>{{ Facultad }}</label></h3>
+                        {%else%}
+                        <h3>Facultad <label>Anonimo</label></h3>
+                        {%endif%}
+                        <button type="submit">Crear</button>
+                    </form>
+                    
+                </div>
+            </div>
+            <!-- <a href="{% url 'app:agregarEstudianteError' %}">Mensaje de error</a> -->
+        </div>
+{% endblock %}

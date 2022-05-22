@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votaciones USTA</title>
+
+    <link rel="stylesheet" href="{% static 'app/css/inicio.css' %}" />
+</head>
+<body>
+    <div class="fondo">
+        <img src="../../static/app/img/wallpaper.jpeg"width="100%"height="100%" alt="USTA">
+        <div class="formulario">
+            <div class="logo"><img src="../../static/app/img/usta_logo.png"width="100%"height="100%" alt="USTA"></div>
+            
+                <form action="{% url 'app:inicioPost' %}" method="post">
+                    {% csrf_token %} 
+                    <div class="info">
+                        <div class="correo">
+                            <h4>Email</h4>
+                            <br><br><br>
+                            <input type="text" name="username">
+                        </div>
+                        <div class="documento">
+                            <h4>Documento</h4>
+                            <br><br><br>
+                            <input type="password" name="password">
+                        </div>
+                        <div class="ingresar">
+                            <!-- acceso al menu principal -->       
+                                
+                            <button type="submit"><h3>Ingresar</h3></button>
+                               
+                        </div>
+                    </div>
+                </form>      
+        </div>
+    </div>
+</body>
+</html>

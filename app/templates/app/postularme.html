@@ -1,0 +1,51 @@
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%}   
+<link rel="stylesheet" href="{% static 'app/css/listaVotaciones.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+        <div class="contenido">
+             <h1>Lista de votaciones para postularse</h1>
+             <p>En este listado encontrará todas las votaciones en las cuales podrá postularse</p>
+             <div class="tabla">
+                <table>
+                    <tr class="TitulosTabla">
+                        <td>Nombre</td>
+                        <td>Tipo</td>
+                        <td>Fecha de inicio</td>
+                        <td>Fecha de finalización</td>
+                        <td>Ciclo</td>
+                        <td>Postularse</td>
+                    </tr>
+                    {%for v  in votaciones %}
+                    <tr class="ContenidoTabla">
+                        <td>{{v.nombre}}</td>
+                        {%if v.tipo_id is 1%}
+                        <td>Semestre</td>
+                        {%else%}
+                        <td>Facultad</td>
+                        {%endif%}
+                        <td>{{v.fechaInicio}}</td>
+                        <td>{{v.fechaFinal}}</td>
+                        <td>2022-1</td>              
+                      
+                        <td>
+                            <form action="{% url 'app:postulacion' v.id %}">
+                                {% csrf_token %}
+                                <button class="ojo">
+                                    <i class="fa-solid fa-user-plus"></i>
+                                </button>
+                            </form>
+                        </td>
+                     
+                    </tr>
+                    {%endfor%}
+                </table>         
+                
+             </div>
+        </div> 
+    </div>
+    
+{% endblock%} 

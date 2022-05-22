@@ -1,0 +1,33 @@
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%} 
+    <link rel="stylesheet" href="{% static 'app/css/postulacion.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+        
+<div class="contenido">
+    <form action="{% url 'app:postulacionPost' v.id%}" method="POST">
+        {% csrf_token %} 
+        <div class="formulario">
+            <h2>Postulación</h2>
+            <div class="votacion">
+                <h3>Votación: <label>{{v.nombre}}</label></h3> 
+            </div>
+            <br>
+            <div class="propuesta">
+                <h3>Propuesta</h3>
+                <textarea id="propuestaTXT" name="propuesta"  cols="60" rows="20"></textarea>
+            </div>
+        </div>    
+        <Button id="botonPostularse">POSTULARSE</Button>                  
+    </form>
+    <form id="Bcancelar" action="{% url 'app:postularme'%}">
+        {% csrf_token %} 
+        <Button id="botonCancelar">CANCELAR</Button>
+    </form>    
+
+</div>
+    
+{% endblock%}

@@ -1,0 +1,16 @@
+{% extends "app/headerEstudiante.html" %}
+{% load static %}
+
+{% block css%} 
+    <link rel="stylesheet" href="{% static 'app/css/postulacionExitosa.css' %}" />
+{% endblock%} 
+
+{% block contenido%} 
+        <div class="contenido">  
+            <button>
+                <i class="fa-solid fa-circle-check"></i>
+            </button>
+            <h1>Su postulación ha sido exitosa</h1>
+        </div> 
+    </div>
+{% endblock%}   
