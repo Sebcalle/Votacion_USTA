@@ -90,6 +90,7 @@ def registroPost(request):
         estudiante.user_id=usuario.id
         estudiante.facultad_id=facultad.id
         estudiante.documento=documento
+        estudiante.repre = 0
         estudiante.save()
 
         return redirect('app:listaDeEstudiantes')
@@ -244,16 +245,17 @@ def vistaVotacionFacultad(request):
 
 @login_required
 def vistaVotacionFacultadPost(request, id_votacion):
-    votacion=Votacion.objects.get(id=id_votacion)
-    # Revisar si existe otra forma de llamarlo
-    facultad=Facultad.objects.get(id=votacion.facultad_id)
-    tipo=TipoVotacion.objects.get(id=votacion.tipo_id)
-    estado=EstadoVotacion.objects.get(id=votacion.estado_id)
+    v=Votacion.objects.filter(id=id_votacion)
+    c=Candidato.objects.filter(Votacion_id=id_votacion)
+    cantidadEstudiantes = Estudiante.objects.filter(facultad_id=v[0].facultad_id).count()
+    cantidadVotos = Voto.objects.filter(votacion_id=id_votacion).count()
+    porcentaje = round(100*(cantidadVotos/cantidadEstudiantes),1)
     contexto={
-        'v':votacion,
-        'f':facultad,
-        't':tipo,
-        'e':estado
+        'votacion':v,
+        'candidato':c,
+        'estudiantes':cantidadEstudiantes,
+        'votos':cantidadVotos,
+        'porcentaje':porcentaje,
     }
     return render (request, 'app/vistaVotacionFacultad.html',contexto)
 
@@ -263,13 +265,17 @@ def vistaVotacionSemestre(request):
 
 @login_required
 def vistaVotacionSemestrePost(request, id_votacion):
-    votacion=Votacion.objects.get(id=id_votacion)
-    # Revisar si existe otra forma de llamarlo
-    facultad=Facultad.objects.get(id=votacion.facultad_id)
-
+    v=Votacion.objects.filter(id=id_votacion)
+    c=Candidato.objects.filter(Votacion_id=id_votacion)
+    cantidadEstudiantes = Estudiante.objects.filter(facultad_id=v[0].facultad_id).count()
+    cantidadVotos = Voto.objects.filter(votacion_id=id_votacion).count()
+    porcentaje = round(100*(cantidadVotos/cantidadEstudiantes),1)
     contexto={
-        'votaciones':votacion,
-        'f':facultad,
+        'votacion':v,
+        'candidato':c,
+        'estudiantes':cantidadEstudiantes,
+        'votos':cantidadVotos,
+        'porcentaje':porcentaje,
     }
     return render (request, 'app/vistaVotacionSemestre.html',contexto)
 
@@ -404,6 +410,10 @@ def votacionExitosaPost(request, id_candidato, id_votacion):
     voto.FechaHora=datetime.today()
     voto.votacion_id=id_votacion
     voto.save()
+    print("Hola",id_candidato)
+    candidato = Candidato.objects.get(id=id_candidato)
+    candidato.cantidadvotos = candidato.cantidadvotos + 1
+    candidato.save()
     return redirect ('app:votacionExitosa')
  
 

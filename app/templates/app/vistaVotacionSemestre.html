@@ -8,12 +8,13 @@
 {% block contenido %} 
 <div class="contenido">
     <div class="titulo">
+        {%for v in votacion%}
         <h1>{{v.nombre}}</h1>
         <h2 style="color: #3A60C2;">Representante por {{t}}</h2>
     </div>
     <div class="panel">
 
-        <form action="{%url 'app:editarVotaciones' v.id %}">
+        <form action="{%url 'app:editarVotaciones' 0 %}">
             {% csrf_token %}
             <button style="background: transparent; border:none; cursor: pointer; margin-left: 160px;">
                 <i class="fa-solid fa-pencil" style="color: #3A60C2; font-size: 20px; margin-left: -60px"></i>
@@ -23,20 +24,28 @@
         <div class="formulario" style="margin-top: -10px;">
             <h3>Fecha de Inicio <label>{{v.fechaInicio}}</label></h3>
             <h3>Fecha de Finalización <label>{{v.fechaFinal}}</label></h3>
-            <h3>Ciclo <label>CICLO</label></h3>
-            <h3>Estado <label>{{e}}</label></h3>
+            <h3>Ciclo <label>2022-1</label></h3>
+            <h3>Estado <label>
+                {%if v.estado_id is 1%}
+                Postulacion
+                {%elif v.estado_id is 2%} 
+                Votacion
+                {%else%}
+                Cerrado
+                {%endif%}
+            </label></h3>
         </div>
         <div class="porcentaje">
             <div style="width: 100%;">
                 <div style="width: 40%;float: left; margin-top: -70px;"> 
                     <h2 style="margin-left: 100px; margin-top: 70px; color: blue">Porcentaje de la votación</h2>
-                <i class="fa-solid fa-circle" style="color: blue; margin-left: 150px; font-size: 200px;"></i>
+                <i class="fa-solid fa-circle" style="color: blue; margin-left: 150px; font-size: 200px;"><h1 style="margin-top: -120px; color: white;">{{porcentaje}}%</h1></i>
                 </div>
                 <div style="margin-left: 30%;"> 
                     <br>
-                    <h3>Estudiantes habilitados para votar: <label>15</label></h3>
+                    <h3>Estudiantes habilitados para votar: <label>{{estudiantes}}</label></h3>
                     <br>
-                    <h3>Estudiantes que han realizado la votación: <label>0</label></h3>
+                    <h3>Estudiantes que han realizado la votación: <label>{{votos}}</label></h3>
                 </div>
             </div>
         </div>
@@ -47,13 +56,17 @@
                 <td><h2>Apellidos</h2></td>
                 <td><h2>Cantidad de Votos</h2></td>
             </tr>
+            {%for c in candidato%}
             <tr>
-                <td>0</td>
-                <td>N</td>
-                <td>N</td>
-                <td>0</td>
+
+                <td>{{c.estudiante.semestreActual}}</td>
+                <td>{{c.estudiante.user.first_name}}</td>
+                <td>{{c.estudiante.user.last_name}}</td>
+                <td>{{c.cantidadvotos}}</td>
             </tr>
+            {%endfor%}
         </table>
+        {%endfor%}
     </div>
 </div>
 {% endblock%} 
